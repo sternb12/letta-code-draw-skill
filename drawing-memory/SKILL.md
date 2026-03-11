@@ -284,7 +284,9 @@ STATE C -- No fact file found for this anchor:
 
 For questions requiring aggregation across multiple entries:
 
-  1. Run: Glob("$MEMORY_DIR/facts/*.md")
+  1. Run: Glob(pattern="*.md", path="$MEMORY_DIR/facts/")
+     Note: always use path= with $MEMORY_DIR, NOT a relative pattern like
+     "facts/*.md" -- the working directory is not the memfs root.
   2. Read each file whose frontmatter description matches the topic
   3. Collect ALL matching entries (not just the first)
   4. For each matching fact file, check whether a corresponding scene
@@ -377,8 +379,9 @@ STATE A    STATE B
 (reconstruct  (fact only,
  scene, high)  medium)
 
-  For aggregate questions: Glob all facts/, read all matching files,
-  use scene temporal anchors to sequence, synthesize before answering.
+  For aggregate questions: Glob(pattern="*.md", path="$MEMORY_DIR/facts/"),
+  read all matching files, use scene temporal anchors to sequence,
+  synthesize before answering. Never use relative Glob patterns.
 
 FILE STRUCTURE (in agent memfs):
 
