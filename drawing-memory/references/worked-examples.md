@@ -89,7 +89,7 @@ the user's awareness of being the senior presence -- pulled these scattered
 entries into a recognizable pattern at retrieval. Without the scene, the agent
 might retrieve one or two coworker ages but miss the full picture.
 
-**PT Tutor equivalent:** "How many times has this student struggled with shoulder
+**Tutor equivalent:** "How many times has this student struggled with shoulder
 anatomy across all sessions?" -- requires recognizing that scattered error-pattern
 entries across a semester all belong to the same conceptual thread.
 
