@@ -185,7 +185,7 @@ temporal markers and resolves to the current state. That synthesis comes from
 having both the temporal anchor (April vs November) and the contextual weight
 (the tone of each session) encoded as scenes.
 
-**PT Tutor equivalent:** "What does this student understand about force vectors?"
+**Tutor equivalent:** "What does this student understand about force vectors?"
 when the student was confused last month but demonstrated mastery last week. The
 scene anchors WHEN and WHY the change happened, not just WHAT changed.
 
@@ -283,7 +283,7 @@ Approximate dates are easy to misorder. The scene's concrete specificity --
 the rainy Sunday, the 5 hours, the Zero already on the shelf -- is what made
 the date stick and enabled the correction.
 
-**PT Tutor equivalent:** "Did the student understand rotator cuff anatomy before
+**Tutor equivalent:** "Did the student understand rotator cuff anatomy before
 or after the cadaver lab?" The vivid contextual anchor of the scene -- what the
 student was doing, what they were touching, where they were standing -- is what
 allows the agent to correctly sequence learning events over a semester.
