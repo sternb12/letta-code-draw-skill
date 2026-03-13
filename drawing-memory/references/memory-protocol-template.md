@@ -1,8 +1,8 @@
 # memory-protocol.md -- System Prompt Directive Template
-#
-# PURPOSE: Copy this content into the agent's memfs at:
-#   $MEMORY_DIR/system/memory-protocol.md
-#
+
+### PURPOSE: Copy this content into the agent's memfs at:
+####   $MEMORY_DIR/system/memory-protocol.md
+
  Files in system/ are pinned to the agent's context on every turn.
  This directive ensures reliable skill auto-activation without
  requiring the user to explicitly say "use your drawing-memory skill."
@@ -12,9 +12,9 @@
    git -C "$MEMORY_DIR" commit -m "feat: add drawing-memory auto-activation directive"
    git -C "$MEMORY_DIR" push
 
-# ---------------------------------------------------------------
-# PASTE EVERYTHING BELOW THIS LINE INTO system/memory-protocol.md
-# ---------------------------------------------------------------
+ ---------------------------------------------------------------
+ PASTE EVERYTHING BELOW THIS LINE INTO system/memory-protocol.md
+---------------------------------------------------------------
 
 ---
 description: Drawing-memory activation rule -- when to invoke the
