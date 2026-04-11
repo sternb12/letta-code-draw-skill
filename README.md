@@ -167,7 +167,7 @@ mid-conversation at all. The v2 work is planned but not yet tested.
 git clone https://github.com/sternb12/letta-code-draw-skill .skills/drawing-memory
 ```
 
-Enable memfs for your agent (run `/memfs enable` in the Letta Code TUI, or verify it is already active with `/memfs status`) and run `/init`. At the start of each coding
+Enable memfs for your agent (run `/memfs enable` , or verify that it's already active with `/memfs status`) and run `/init`. At the start of each coding
 session, ask the agent once:
 
 > "Please load your drawing-memory skill."
