@@ -130,7 +130,7 @@ second file. After both sessions the `incidents/` directory contained
 exactly one file.
 
 All four tests, together with the exact messages, file contents, scores,
-and commit messages, are in `drawing-memory/PILOT_TESTS.md`.
+and commit messages, are in [`PILOT_TESTS.md`](PILOT_TESTS.md).
 
 ---
 
@@ -152,8 +152,8 @@ agent internalized the routing and the skill fired automatically for
 every scene-worthy input that followed. This was the only validated setup
 path, and it is the one the installation instructions describe below.
 
-A cleaner fix is in progress. The v2 design (`references/
-coding_dual_trace_v2.md`) moves encoding out of the conversation entirely
+A cleaner fix is in progress. The [v2 design](references/coding_dual_trace_v2.md)
+moves encoding out of the conversation entirely
 and runs it as a post-session sub-agent fired from a Stop hook -- a
 pattern borrowed from Claude Code's autoDream. That design eliminates the
 skill-loading indirection by not requiring the skill to fire
@@ -167,7 +167,7 @@ mid-conversation at all. The v2 work is planned but not yet tested.
 git clone https://github.com/sternb12/letta-code-draw-skill .skills/drawing-memory
 ```
 
-Enable memfs (/memfs enable) for your agent and run `/init`. At the start of each coding
+Enable memfs for your agent (run `/memfs enable` in the Letta Code TUI, or verify it is already active with `/memfs status`) and run `/init`. At the start of each coding
 session, ask the agent once:
 
 > "Please load your drawing-memory skill."
