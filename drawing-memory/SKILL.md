@@ -45,13 +45,15 @@ file encoding -- a structured fact (verbal/semantic) paired with a vivid scene
   The surprisingly powerful influence of drawing on memory. Current
   Directions in Psychological Science, 27(5), 302-308.
 
-Empirically validated on LongMemEval-S (4,575 sessions, 100 questions):
-dual-trace vs. fact-only control (identical coverage and format):
+The dual-trace principle was empirically validated on LongMemEval-S (Wang et
+al., 2024) in the letta_v1_agent / archival memory condition (C6 vs C7,
+paired analysis over 99 questions, bootstrap p < 0.0001). Results from that
+evaluation:
 
-  Overall accuracy:    +19.7pp  (73.7% vs 54%)
-  Temporal reasoning:  +33.3pp  -- scenes anchor events in time
-  Knowledge-update:    +22.7pp  -- scenes signal which state is current
-  Multi-session:       +22.2pp  -- scenes bind scattered entries into threads
+  Overall accuracy:    +20.2pp  (73.7% vs 53.5%)
+  Temporal reasoning:  +40pp    -- scenes anchor events in time
+  Knowledge-update:    +25pp    -- scenes signal which state is current
+  Multi-session:       +30pp    -- scenes bind scattered entries into threads
   Single-session:        0pp    -- null result (expected: scenes add nothing
                                    when one lookup suffices)
   Token cost:          -3.3%    -- higher cache hit rate offsets scene overhead
@@ -59,6 +61,12 @@ dual-trace vs. fact-only control (identical coverage and format):
 The null result on single-session is the mechanistic fingerprint: scenes
 contribute specifically when memory must be aggregated, sequenced, or resolved
 across multiple entries.
+
+Note on scope: the above results are from the archival_memory_insert variant
+(vector-DB storage). This file-based adaptation preserves the dual-trace
+encoding structure and is expected to retain the same mechanistic advantage.
+Controlled experimental validation of the file-based variant is future work.
+Full results and docs: https://github.com/sternb12/agent_draw_skills
 
 ## Auto-Activation: System Prompt Directive (Required)
 

@@ -1,19 +1,22 @@
 # Real-World Examples: Dual-Trace Memory in Action
 
 These three examples are drawn from a controlled evaluation of the dual-trace
-encoding approach on LongMemEval-S (LME-S), a standardized benchmark of 4,575
-real user conversation sessions and 100 structured recall questions. All three
-questions were answered correctly by the C6-draw agent (dual-trace). Each
-illustrates a different mechanism by which scene files contribute to retrieval.
+encoding approach on LongMemEval-S (LME-S, Wang et al., 2024): 4,575 real user
+conversation sessions, 100 structured recall questions. The evaluation used the
+letta_v1_agent / archival memory condition (archival_memory_insert storage, not
+the file-based format this repo implements). All three questions were answered
+correctly by the C6-draw agent (dual-trace). Each illustrates a different
+mechanism by which scene traces contribute to retrieval.
 
-The passage content shown is reconstructed from the agent's responses and
-retrieval behavior -- the agent's answers drew directly on the stored content,
-making reconstruction reliable. Test questions are verbatim from LME-S.
+The stored content shown below is rendered in the file-based format this repo
+uses -- the equivalent representation for Letta Code agents. The factual
+content and scene narratives are reconstructed from the agent's responses and
+retrieval behavior. Test questions are verbatim from LME-S.
 
 ---
 
 ## Example 1: Multi-Session Aggregation
-**Why it matters:** +22.2pp gain (C6 dual-trace vs C7 fact-only)
+**Why it matters:** +30pp gain (C6 dual-trace vs C7 fact-only, paired analysis)
 
 ### Test Question (verbatim)
 > "Search your memory of past conversation sessions, then answer this question
@@ -96,7 +99,7 @@ entries across a semester all belong to the same conceptual thread.
 ---
 
 ## Example 2: Knowledge-Update (Tracking Change Over Time)
-**Why it matters:** +22.7pp gain (C6 dual-trace vs C7 fact-only)
+**Why it matters:** +25pp gain (C6 dual-trace vs C7 fact-only, paired analysis)
 
 ### Test Question (verbatim)
 > "Search your memory of past conversation sessions, then answer this question
@@ -192,7 +195,7 @@ scene anchors WHEN and WHY the change happened, not just WHAT changed.
 ---
 
 ## Example 3: Temporal Reasoning (Sequencing Events)
-**Why it matters:** +33.3pp gain -- the largest relative gain in the evaluation
+**Why it matters:** +40pp gain -- the largest relative gain in the evaluation
 
 ### Test Question (verbatim)
 > "Search your memory of past conversation sessions, then answer this question
@@ -294,9 +297,9 @@ allows the agent to correctly sequence learning events over a semester.
 
 | Example | Category | C7 (fact-only) | C6 (dual-trace) | Scene's role |
 |---|---|---|---|---|
-| Dept. age gap | multi-session | 43% | 65.5% | Binds scattered entries into a coherent thread |
-| Dr. Smith | knowledge-update | 59% | 81.8% | Signals which state is current via contextual weight |
-| Ferrari vs Zero | temporal-reasoning | 37.5% | 70.8% | Concrete date anchor enables self-correction |
+| Dept. age gap | multi-session | 20% | 50% | Binds scattered entries into a coherent thread |
+| Dr. Smith | knowledge-update | 55% | 80% | Signals which state is current via contextual weight |
+| Ferrari vs Zero | temporal-reasoning | 25% | 65% | Concrete date anchor enables self-correction |
 
 The single-session null result (0pp gain) completes the picture: when one
 passage suffices, scenes add nothing. The effect is specific to exactly the

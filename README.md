@@ -22,27 +22,55 @@ Glob("memory/facts/*.md") enumerates everything. No symbolic index needed.
 
 ---
 
-## Empirical Validation
+## Parent Evaluation (letta_v1_agent / archival memory condition)
 
-Evaluated on LongMemEval-S (4,575 sessions, 100 questions).
-Controlled comparison: C6 (dual-trace) vs C7 (fact-only), identical coverage.
+The dual-trace encoding principle was evaluated on LongMemEval-S (Wang et al.,
+2024): 4,575 real user conversation sessions, 100 structured recall questions,
+4,575-session distractor corpus.
+
+Controlled comparison: C6 (dual-trace) vs C7 (fact-only). Paired analysis over
+99 shared questions, bootstrap CIs (10,000 resamples), GPT-4o graded. Both
+conditions used the letta_v1_agent architecture with archival_memory_insert and
+archival_memory_search -- the vector-DB variant, not the file-based format this
+repo implements. Session encoding rates were comparable: C6 54.8%, C7 57.4%.
 
   Category            C7 (fact-only)   C6 (dual-trace)   Scene contribution
   --------------------|----------------|-----------------|------------------
-  Overall             54%              73.7%             +19.7pp
-  Single-session      79%              79%                 0pp (null -- expected)
-  Multi-session       43%              65.5%             +22.2pp
-  Knowledge-update    59%              81.8%             +22.7pp
-  Temporal-reasoning  38%              70.8%             +33.3pp
+  Overall             53.5%            73.7%             +20.2pp
+  Single-session      75%              75%                 0pp (null -- expected)
+  Multi-session       20%              50%               +30pp
+  Knowledge-update    55%              80%               +25pp
+  Temporal-reasoning  25%              65%               +40pp
   Token cost          baseline         -3.3%             cheaper per query
 
-Full performance ladder:
+Full performance ladder (letta_v1_agent condition):
 
-  Vanilla (no memory)    ~9%
-  Basic archival         48%
-  Fact-only (C7)         54%
-  Dual-trace (C6)        73.7%    <- this skill
+  Vanilla (no memory)    20.0%    (correct abstention, no stored sessions)
+  Basic archival         47.5%
+  Fact-only (C7)         53.5%
+  Dual-trace (C6)        73.7%
   SOTA                   84-86%
+
+Full results, reproducibility details, and evidence-scoring docs:
+https://github.com/sternb12/agent_draw_skills
+
+---
+
+## This Variant: Architectural Adaptation
+
+This file-based variant is an architectural adaptation of the evaluated protocol.
+Storage moves from archival_memory_insert (vector DB) to Write + Glob (flat
+files in the agent's git-backed memory filesystem). Retrieval moves from
+archival_memory_search (probabilistic cosine top-k) to Glob + Read (complete
+enumeration -- solving multi-session aggregation structurally, no symbolic
+index needed).
+
+The dual-trace encoding structure -- fact file paired with scene file, shared
+anchor, same temporal anchor rules -- is preserved from the evaluated protocol.
+
+Validation status: preliminary pilot validation on a Letta Code agent (four
+manual tests, March 2026). Controlled experimental evaluation against
+LongMemEval-S or a comparable benchmark is future work.
 
 ---
 
