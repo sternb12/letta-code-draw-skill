@@ -154,7 +154,7 @@ path, and it is the one the installation instructions describe below.
 
 A cleaner fix is in progress. The [v2 design](references/coding_dual_trace_v2.md)
 moves encoding out of the conversation entirely
-and runs it as a post-session sub-agent fired from a Stop hook -- a
+and runs it as a post-session sub-agent fired from a Stop hook, which is a
 pattern borrowed from Claude Code's autoDream. That design eliminates the
 skill-loading indirection by not requiring the skill to fire
 mid-conversation at all. The v2 work is planned but not yet tested.
